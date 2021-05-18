@@ -1,10 +1,10 @@
 def exampleMethod() {
     //do something
-    echo("E");
+    echo "E"
 }
 
 def otherExampleMethod() {
     //do something else
-    echo("O");
+    echo "O"
 }
 return this
