@@ -1,6 +1,6 @@
 node {
     def rootDir = pwd()
     def exampleModule = load "${rootDir}@script/Example.Groovy "
-    exampleModule.exampleMethod()
-    exampleModule.otherExampleMethod()
+    exampleModule.exampleMethod('hello')
+    exampleModule.otherExampleMethod('world')
 }
