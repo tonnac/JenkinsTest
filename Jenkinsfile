@@ -1,7 +1,14 @@
-def modules = [:]
-pipeline {
-    agent any
+def UE4 = new unreal.UE4()
 
+def BuildConfigChoices = UE4.GetBuildConfigurationChoices()
+
+pipeline 
+{
+	agent any
+    
+	options 
+	{ skipDefaultCheckout() }
+    
 	parameters
 	{
 		choice(
@@ -21,20 +28,51 @@ pipeline {
 		UE4 = UE4.Initialise(ProjectName, ProjectRootDir)
 	}
 	
-
-    stages {
-        stage('test') {
-            steps {
-                script{
-                    modules.first = load "first.groovy"
-                    modules.second = load "second.groovy"
-                    modules.second.init(modules.first)
-                    modules.first.test1()
-                    modules.second.test2()
-
-
-                }
-            }
-        }
-    }
+	stages
+	{
+		stage('Generate Project Files')
+		{
+			steps
+			{
+				script
+				{
+					UE4.GenerateProjectFiles()
+				}
+			}
+		}
+		stage('Compile')
+		{
+			steps
+			{
+				script
+				{
+					UE4.CompileProject(params.BuildConfig as unreal.BuildConfiguration)
+				}
+			}
+		}
+		stage('Cook')
+		{
+			when
+			{
+				expression { params.CookProject == true }
+			}
+			steps
+			{
+				script
+				{
+					UE4.CookProject("WindowsNoEditor", "${params.MapsToCook}")
+				}
+			}
+		}
+		stage('Build DDC') 
+		{
+			steps
+			{
+				script
+				{
+					UE4.BuildDDC()
+				}
+			}
+		}
+	}
 }
