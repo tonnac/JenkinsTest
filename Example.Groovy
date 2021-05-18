@@ -1,10 +1,10 @@
 def exampleMethod(message) {
     //do something
-    echo "${message}"
+    sh dir/w
 }
 
 def otherExampleMethod(message) {
     //do something else
-    echo "${message}"
+    sh dir/w
 }
 return this
