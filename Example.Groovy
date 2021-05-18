@@ -1,10 +1,10 @@
-def exampleMethod() {
+def exampleMethod(message) {
     //do something
-    echo "E"
+    echo "${message}"
 }
 
-def otherExampleMethod() {
+def otherExampleMethod(message) {
     //do something else
-    echo "O"
+    echo "${message}"
 }
 return this
