@@ -1,6 +1,27 @@
 def modules = [:]
 pipeline {
     agent any
+
+	parameters
+	{
+		choice(
+			choices: BuildConfigChoices,
+			description: "Build Configuration",
+			name: "BuildConfig"
+			)
+		booleanParam(defaultValue: true, description: 'Should the project be cooked?', name: 'CookProject')
+		string(defaultValue: '', description: 'Maps we want to cook', name: 'MapsToCook')
+	}
+    
+	environment 
+	{
+		ProjectName		= getFolderName(this)
+		WorkspaceRootDir	= env.WORKSPACE
+		
+		UE4 = UE4.Initialise(ProjectName, ProjectRootDir)
+	}
+	
+
     stages {
         stage('test') {
             steps {
@@ -10,6 +31,8 @@ pipeline {
                     modules.second.init(modules.first)
                     modules.first.test1()
                     modules.second.test2()
+
+
                 }
             }
         }
