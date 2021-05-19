@@ -12,7 +12,7 @@ enum BuildConfiguration
 
 enum Platform
 {
-	Win64,
+	WindowsNoEditor,
 	Android
 }
 
@@ -150,8 +150,6 @@ def RunBuildGraph(String scriptPath, String target, def parameters, String addit
  */ 
 def CookProject(String platforms = "WindowsNoEditor", String mapsToCook = "", boolean iterative = true, String additionalArguments = "-fileopenlog")
 {
-	println platforms
-	println additionalArguments
 	 RunCommand("${UE4_CMD} ${ProjectFile} -run=Cook -targetplatform=${platforms} -map=${mapsToCook} ${additionalArguments} ${DefaultArguments}" + (iterative ? " -iterate -iterateshash" : ""))
 }
 
