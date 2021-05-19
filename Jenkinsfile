@@ -26,13 +26,11 @@ def UE4 = new unreal.UE4()
 
 def BuildConfigChoices = UE4.GetBuildConfigurationChoices()
 
+echo sh(script: 'env|sort', returnStdout: true)
+
 pipeline 
 {
-	node('master')
-        {
-            echo sh(script: 'env|sort', returnStdout: true)
-        }
-    
+	agent any
     
 	options 
 	{ skipDefaultCheckout() }
