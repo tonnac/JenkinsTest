@@ -1,3 +1,4 @@
+
 def UE4 = new unreal.UE4()
 
 def BuildConfigChoices = UE4.GetBuildConfigurationChoices()
