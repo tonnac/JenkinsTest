@@ -47,7 +47,7 @@ pipeline
 	environment 
 	{
 		ProjectName		= getFolderName(this)
-        ProjectRootDir = "C:\\Users\\C\\source\\repos"
+        ProjectRootDir = "C:/Users/C/source/repos"
 		WorkspaceRootDir	= "${env.WORKSPACE}"
 		
 		UE4 = UE4.Initialise(ProjectName, env.ENGINE_ROOT, ProjectRootDir)
@@ -66,7 +66,8 @@ pipeline
                     echo "NODE_NAME = ${env.NODE_NAME}"
                     echo "NODE_NAME = ${env.ENGINE_ROOT}"
                     echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} ${env.WORKSPACE}"
-                    echo sh(script: 'env|sort', returnStdout: true)
+                    def output = sh(script: 'env|sort', returnStdout: true)
+                    echo output
 					UE4.GenerateProjectFiles()
 				}
 			}
