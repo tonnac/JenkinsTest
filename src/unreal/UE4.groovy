@@ -10,9 +10,20 @@ enum BuildConfiguration
 	DebugGame
 }
 
+enum Platform
+{
+	Win64,
+	Android
+}
+
 def GetBuildConfigurationChoices()
 {
 	return Arrays.toString(BuildConfiguration.values()).replaceAll('^.|.$', "").split(", ").join("\n")
+}
+
+def GetTargetPlatformChoices()
+{
+	return Arrays.toString(Platform.values()).replaceAll('^.|.$', "").split(", ").join("\n")
 }
 
 /* Project Specific Directories */
