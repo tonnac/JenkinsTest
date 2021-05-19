@@ -1,7 +1,7 @@
 package org.foo
 
-def checkOutFrom(repo) {
-  git url: "git@github.com:jenkinsci/${repo}"
+def checkOutFrom() {
+  println "2"
 }
 
 return this

@@ -14,7 +14,7 @@ pipeline
 			{
 				script
 				{
-                    z.checkOutFrom(repo)
+                    z.checkOutFrom()
 				}
 			}
 		}
