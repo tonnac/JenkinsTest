@@ -44,13 +44,13 @@ pipeline
 		string(defaultValue: '', description: 'Maps we want to cook', name: 'MapsToCook')
 	}
     
-	environment 
-	{
-		// ProjectName		= getFolderName(this)
-		// WorkspaceRootDir	= env.WORKSPACE
+	// environment 
+	// {
+	// 	// ProjectName		= getFolderName(this)
+	// 	// WorkspaceRootDir	= env.WORKSPACE
 		
-		// UE4 = UE4.Initialise(ProjectName, ProjectRootDir)
-	}
+	// 	// UE4 = UE4.Initialise(ProjectName, ProjectRootDir)
+	// }
 	
 	stages
 	{
