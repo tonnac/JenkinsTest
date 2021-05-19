@@ -86,7 +86,7 @@ def Setup()
 /* Generate Project files for the initialised project */
 def GenerateProjectFiles()
 {
-	RunCommand("\"${BatchDir}/GenerateProjectFiles.${ScriptInvocationType}\" -projectfiles -project=${ProjectFile} -game -engine -progress ${DefaultArguments}")
+	RunCommand("\"${EngineDir}/Engine/Binaries/DotNET/UnrealBuildTool.exe\" -projectfiles -project=${ProjectFile} -game -rocket -progress ${DefaultArguments}")
 }
 
 /** 
