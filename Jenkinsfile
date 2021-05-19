@@ -43,7 +43,8 @@ pipeline
 			{
 				script
 				{
-                    echo "${env.customWorkspace}"
+                    echo "C ${env.customWorkspace}"
+                    echo "W ${env.WorkspaceRootDir}"
 					UE4.GenerateProjectFiles()
 				}
 			}
