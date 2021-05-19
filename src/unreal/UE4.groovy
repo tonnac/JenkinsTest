@@ -63,9 +63,7 @@ def Initialise(String projectName, String engineDir, String projectDir = "", Str
 	}
 
 	ProjectDir      = projectDir
-	println ProjectDir
 	ProjectFile     = "\"${ProjectDir}/${ProjectName}.uproject\""
-	println ProjectFile
 
 	DefaultArguments = defaultArguments
 	
@@ -73,13 +71,10 @@ def Initialise(String projectName, String engineDir, String projectDir = "", Str
 	ScriptInvocationType = isUnix() ?  "sh" : "bat"
 	
 	UBT	= "\"${BatchDir}/Build.${ScriptInvocationType}\""
-	println UBT
 
 	UAT = "\"${EngineDir}/Engine/Build/BatchFiles/RunUAT.${ScriptInvocationType}\""
-	println UAT
 
 	UE4_CMD = "\"${EngineDir}/Engine/Binaries/Win64/UE4Editor-Cmd.exe\""
-	println UE4_CMD
 }
 
 /* Runs Setup.bat */
