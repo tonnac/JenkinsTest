@@ -46,10 +46,10 @@ pipeline
     
 	environment 
 	{
-		ProjectName		= getFolderName(this)
-		WorkspaceRootDir	= env.WORKSPACE
+		// ProjectName		= getFolderName(this)
+		// WorkspaceRootDir	= env.WORKSPACE
 		
-		UE4 = UE4.Initialise(ProjectName, ProjectRootDir)
+		// UE4 = UE4.Initialise(ProjectName, ProjectRootDir)
 	}
 	
 	stages
@@ -60,6 +60,7 @@ pipeline
 			{
 				script
 				{
+                    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} ${env.WORKSPACE}"
 					UE4.GenerateProjectFiles()
 				}
 			}
