@@ -41,7 +41,7 @@ pipeline
 			name: "BuildConfig"
 			)
 		booleanParam(defaultValue: true, description: 'Should the project be cooked?', name: 'CookProject')
-		string(defaultValue: '', description: 'Maps we want to cook', name: 'MapsToCook')
+		string(defaultValue: 'ThirdPersonMap', description: 'Maps we want to cook', name: 'MapsToCook')
 	}
     
 	environment 
@@ -60,6 +60,7 @@ pipeline
 			{
 				script
 				{
+                    echo sh(script: 'env|sort', returnStdout: true)
                     echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} ${env.WORKSPACE}"
 					UE4.GenerateProjectFiles()
 				}
