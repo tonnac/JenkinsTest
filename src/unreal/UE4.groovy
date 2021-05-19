@@ -63,7 +63,9 @@ def Initialise(String projectName, String engineDir, String projectDir = "", Str
 	}
 
 	ProjectDir      = projectDir
+	println ProjectDir
 	ProjectFile     = "\"${ProjectDir}/${ProjectName}.uproject\""
+	println ProjectFile
 
 	DefaultArguments = defaultArguments
 	
