@@ -1,4 +1,4 @@
-@Library('UE4_Library')
+@Library('UE4_Library@main')
 
 def z = new org.foo.Zot()
 z.checkOutFrom(repo)
