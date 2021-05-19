@@ -32,7 +32,7 @@ pipeline
 		ProjectName		= getFolderName(this)
 		WorkspaceRootDir	= "${env.customWorkspace}"
 		
-		UE4 = UE4.Initialise(ProjectName, env.ENGINE_ROOT, ProjectRootDir)
+		UE4 = UE4.Initialise(ProjectName, env.ENGINE_ROOT, env.customWorkspace)
 	}
 	
 	stages
