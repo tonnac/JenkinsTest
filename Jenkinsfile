@@ -28,12 +28,7 @@ def BuildConfigChoices = UE4.GetBuildConfigurationChoices()
 
 pipeline 
 {
-	agent {
-        node {
-            label 'master'
-            echo sh(script: 'env|sort', returnStdout: true)
-        }
-    }
+	agent any
     
 	options 
 	{ skipDefaultCheckout() }
@@ -55,7 +50,7 @@ pipeline
         ProjectRootDir = "C:\\Users\\C\\source\\repos"
 		WorkspaceRootDir	= "${env.WORKSPACE}"
 		
-		UE4 = UE4.Initialise(ProjectName, ProjectRootDir)
+		UE4 = UE4.Initialise(ProjectName, env.ENGINE_ROOT, ProjectRootDir)
 	}
 	
 	stages
