@@ -1,3 +1,5 @@
+@Library('UE4_Library')
+
 def z = new org.foo.Zot()
 z.checkOutFrom(repo)
 
