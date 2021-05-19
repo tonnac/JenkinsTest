@@ -1,27 +1,5 @@
 @Library('UE4_Library@main')
 
-// def z = new org.foo.Zot()
-
-// pipeline 
-// {
-// 	agent any
-	
-// 	stages
-// 	{
-// 		stage('Generate Project Files')
-// 		{
-// 			steps
-// 			{
-// 				script
-// 				{
-//                     z.checkOutFrom()
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
-
 def UE4 = new unreal.UE4()
 
 def BuildConfigChoices = UE4.GetBuildConfigurationChoices()
@@ -66,7 +44,7 @@ pipeline
                     echo "NODE_NAME = ${env.NODE_NAME}"
                     echo "NODE_NAME = ${env.ENGINE_ROOT}"
                     echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} ${env.WORKSPACE}"
-                    def output = sh(script: 'env|sort', returnStdout: true)
+                    def output = sh(script: 'env', returnStdout: true)
                     echo output
 					UE4.GenerateProjectFiles()
 				}
