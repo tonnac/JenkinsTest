@@ -47,7 +47,7 @@ pipeline
 	environment 
 	{
 		ProjectName		= getFolderName(this)
-		WorkspaceRootDir	= ${env.WORKSPACE}
+		WorkspaceRootDir	= "${env.WORKSPACE}"
 		
 		UE4 = UE4.Initialise(ProjectName, ProjectRootDir)
 	}
