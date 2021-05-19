@@ -26,8 +26,6 @@ def UE4 = new unreal.UE4()
 
 def BuildConfigChoices = UE4.GetBuildConfigurationChoices()
 
-echo sh(script: 'env|sort', returnStdout: true)
-
 pipeline 
 {
 	agent any
@@ -62,9 +60,9 @@ pipeline
 			{
 				script
 				{
+                    echo sh(script: 'env|sort', returnStdout: true)
                     echo "NODE_NAME = ${env.NODE_NAME}"
                     echo "NODE_NAME = ${env.ENGINE_ROOT}"
-                    echo sh(script: 'env|sort', returnStdout: true)
                     echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} ${env.WORKSPACE}"
 					UE4.GenerateProjectFiles()
 				}
