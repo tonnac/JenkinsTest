@@ -30,9 +30,8 @@ pipeline
 	environment 
 	{
 		ProjectName		= getFolderName(this)
-		WorkspaceRootDir	= "${env.customWorkspace}"
 		
-		UE4 = UE4.Initialise(ProjectName, env.ENGINE_ROOT, WorkspaceRootDir)
+		UE4 = UE4.Initialise(ProjectName, env.ENGINE_ROOT, env.WORKSPACE)
 	}
 	
 	stages
@@ -43,8 +42,6 @@ pipeline
 			{
 				script
 				{
-                    echo "C ${env.WORKSPACE}"
-                    echo "W ${env.WORKSPACE}"
 					UE4.GenerateProjectFiles()
 				}
 			}

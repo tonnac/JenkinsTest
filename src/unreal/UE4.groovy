@@ -57,6 +57,9 @@ def Initialise(String projectName, String engineDir, String projectDir = "", Str
 	ProjectName		= projectName
 	EngineDir		= engineDir
 
+	println  "DSDS"
+	println projectDir
+
 	if(projectDir == "")
 	{
 		projectDir	= "${EngineDir}/${ProjectName}"
