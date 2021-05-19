@@ -47,6 +47,7 @@ pipeline
 	environment 
 	{
 		ProjectName		= getFolderName(this)
+        ProjectRootDir = "C:\\Users\\C\\source\\repos"
 		WorkspaceRootDir	= "${env.WORKSPACE}"
 		
 		UE4 = UE4.Initialise(ProjectName, ProjectRootDir)
