@@ -60,10 +60,10 @@ pipeline
 			{
 				script
 				{
-                    echo sh(script: 'env|sort', returnStdout: true)
                     echo "NODE_NAME = ${env.NODE_NAME}"
                     echo "NODE_NAME = ${env.ENGINE_ROOT}"
                     echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} ${env.WORKSPACE}"
+                    echo sh(script: 'env|sort', returnStdout: true)
 					UE4.GenerateProjectFiles()
 				}
 			}
