@@ -6,7 +6,12 @@ def BuildConfigChoices = UE4.GetBuildConfigurationChoices()
 
 pipeline 
 {
-	agent any
+	agent {
+        node {
+            label 'master'
+            customWorkspace 'C:/Users/C/source/repos/SpawnSpawn'
+        }
+    }
     
 	options 
 	{ skipDefaultCheckout() }
@@ -25,8 +30,7 @@ pipeline
 	environment 
 	{
 		ProjectName		= getFolderName(this)
-        ProjectRootDir = "C:/Users/C/source/repos/SpawnSpawn"
-		WorkspaceRootDir	= "${env.WORKSPACE}"
+		WorkspaceRootDir	= "${env.customWorkspace}"
 		
 		UE4 = UE4.Initialise(ProjectName, env.ENGINE_ROOT, ProjectRootDir)
 	}
@@ -39,6 +43,7 @@ pipeline
 			{
 				script
 				{
+                    echo "${customWorkspace}"
 					UE4.GenerateProjectFiles()
 				}
 			}
