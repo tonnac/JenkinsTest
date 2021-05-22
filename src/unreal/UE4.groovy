@@ -151,7 +151,8 @@ def RunBuildGraph(String scriptPath, String target, def parameters, String addit
 def CookProject(String platforms = "WindowsNoEditor", String mapsToCook = "", boolean iterative = true, String additionalArguments = "-fileopenlog")
 {
 	println additionalArguments
-	 RunCommand("${UE4_CMD} ${ProjectFile} -run=Cook -targetplatform=${platforms} -map=${mapsToCook} ${additionalArguments} ${DefaultArguments}" + (iterative ? " -iterate -iterateshash" : ""))
+	 RunCommand("${UE4_CMD} ${ProjectFile} -run=Cook -targetplatform=${platforms} ${additionalArguments} ${DefaultArguments}" + (iterative ? " -iterate -iterateshash" : ""))
+	//  RunCommand("${UE4_CMD} ${ProjectFile} -run=Cook -targetplatform=${platforms} -map=${mapsToCook} ${additionalArguments} ${DefaultArguments}" + (iterative ? " -iterate -iterateshash" : ""))
 }
 
 /** 
@@ -166,7 +167,7 @@ def CookProject(String platforms = "WindowsNoEditor", String mapsToCook = "", bo
  */ 
 def PackageProject(String platform, BuildConfiguration buildConfiguration, String stagingDir, boolean usePak = true, boolean iterative = true, String cmdlineArguments = "", String additionalArguments = "")
 {
-	RunCommand("${UAT} BuildCookRun -project=${ProjectFile} -platform=${platform} -skipcook -skipbuild -nocompileeditor -NoSubmit -stage -package -clientconfig=" + buildConfiguration.name() + " -StagingDirectory=\"${stagingDir}\"" + (usePak ? " -pak " : " ") + " -cmdline=\"${cmdlineArguments}\" " + "${additionalArguments} ${DefaultArguments}")
+	RunCommand("${UAT} BuildCookRun -project=${ProjectFile} -targetplatform=${platform} -skipcook -skipbuild -nocompileeditor -NoSubmit -stage -package -clientconfig=" + buildConfiguration.name() + " -StagingDirectory=\"${stagingDir}\"" + (usePak ? " -pak " : " ") + " -cmdline=\"${cmdlineArguments}\" " + "${additionalArguments} ${DefaultArguments}")
 }
 
 /**
