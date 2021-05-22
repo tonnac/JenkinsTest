@@ -127,7 +127,7 @@ def CompileProject(BuildConfiguration buildConfiguration, boolean editor = true,
 	{
 		projectTarget += "Editor"
 	}
-	RunCommand("${UBT} ${projectTarget} ${ProjectFile} ${platform} " +  buildConfiguration.name() + " ${additionalArguments} ${DefaultArguments}")
+	RunCommand("${EngineDir}/Engine/Binaries/DotNET/UnrealBuildTool.exe} ${projectTarget} ${ProjectFile} ${platform} " +  buildConfiguration.name() + " ${additionalArguments} ${DefaultArguments}")
 }
 
 def RunBuildGraph(String scriptPath, String target, def parameters, String additionalArguments = "")
@@ -150,7 +150,6 @@ def RunBuildGraph(String scriptPath, String target, def parameters, String addit
  */ 
 def CookProject(String platforms = "WindowsNoEditor", String mapsToCook = "", boolean iterative = true, String additionalArguments = "-fileopenlog")
 {
-	println additionalArguments
 	 RunCommand("${UE4_CMD} ${ProjectFile} -run=Cook -targetplatform=${platforms} ${additionalArguments} ${DefaultArguments}" + (iterative ? " -iterate -iterateshash" : ""))
 	//  RunCommand("${UE4_CMD} ${ProjectFile} -run=Cook -targetplatform=${platforms} -map=${mapsToCook} ${additionalArguments} ${DefaultArguments}" + (iterative ? " -iterate -iterateshash" : ""))
 }
