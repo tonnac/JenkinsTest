@@ -127,7 +127,7 @@ def CompileProject(BuildConfiguration buildConfiguration, boolean editor = true,
 	{
 		projectTarget += "Editor"
 	}
-	RunCommand("${EngineDir}/Engine/Binaries/DotNET/UnrealBuildTool.exe ${projectTarget} ${ProjectFile} ${platform} " +  buildConfiguration.name() + " ${additionalArguments} ${DefaultArguments}")
+	RunCommand("\"${EngineDir}/Engine/Binaries/DotNET/UnrealBuildTool.exe\" ${projectTarget} ${ProjectFile} ${platform} " +  buildConfiguration.name() + " ${additionalArguments} ${DefaultArguments}")
 }
 
 def RunBuildGraph(String scriptPath, String target, def parameters, String additionalArguments = "")
