@@ -12,7 +12,7 @@ enum BuildConfiguration
 
 enum Platform
 {
-	WindowsNoEditor,
+	Win64,
 	Android
 }
 
